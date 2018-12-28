@@ -22,8 +22,7 @@ public class CountChange {
     } else if (amount < 0 || kindsOfCoins == 0) {
       return 0;
     } else {
-      return helper(amount, kindsOfCoins - 1)
-          + helper((amount - nums[kindsOfCoins - 1]), kindsOfCoins);
+      return helper(amount, kindsOfCoins - 1) + helper((amount - nums[kindsOfCoins - 1]), kindsOfCoins);
     }
   }
 }

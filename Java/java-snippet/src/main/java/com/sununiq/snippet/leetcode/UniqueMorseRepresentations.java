@@ -8,9 +8,8 @@ import java.util.stream.Stream;
 
 public class UniqueMorseRepresentations {
   public int uniqueMorseRepresentations(String[] words) {
-    String[] index =
-        {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---",
-            ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+    String[] index = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--",
+        "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
     Set<String> hashSet = new HashSet<>(words.length);
     for (String word : words) {
       StringBuilder mode = new StringBuilder();
@@ -24,9 +23,8 @@ public class UniqueMorseRepresentations {
   }
 
   public int uniqueMorseRepresentations2(String[] words) {
-    String[] index =
-        {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---",
-            ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+    String[] index = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--",
+        "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
     return Stream.of(words).map(word -> {
       StringBuilder mode = new StringBuilder();
       for (int i = 0; i < word.length(); i++) {

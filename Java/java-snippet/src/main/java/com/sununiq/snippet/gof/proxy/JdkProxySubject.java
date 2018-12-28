@@ -21,11 +21,7 @@ public class JdkProxySubject implements InvocationHandler {
 
   @SuppressWarnings("unchecked")
   public <T> T getProxy() {
-    return (T) Proxy.newProxyInstance(
-        target.getClass().getClassLoader(),
-        target.getClass().getInterfaces(),
-        this
-    );
+    return (T) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
   }
 
   @Override

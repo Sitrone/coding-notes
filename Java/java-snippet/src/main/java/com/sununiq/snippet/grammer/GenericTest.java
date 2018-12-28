@@ -10,15 +10,15 @@ public class GenericTest {
     Object[] objectArray = new Long[1];
     objectArray[0] = "Hello world.";
 
-//        List<Object> objectList = new ArrayList<Long>(); // Incompatiable types
-//        objectList.add("Hello world.");
+    //        List<Object> objectList = new ArrayList<Long>(); // Incompatiable types
+    //        objectList.add("Hello world.");
 
     // 泛型数组是不安全的
-//        List<String>[] stringLists = new ArrayList<String>[1];
-//        List<Integer> intList = Arrays.asList(42);
-//        Object[] objects = stringLists;
-//        objects[0] = intList;
-//        String s = stringLists[0].get(0);
+    //        List<String>[] stringLists = new ArrayList<String>[1];
+    //        List<Integer> intList = Arrays.asList(42);
+    //        Object[] objects = stringLists;
+    //        objects[0] = intList;
+    //        String s = stringLists[0].get(0);
   }
 }
 

@@ -15,10 +15,6 @@ public class CasNumberRange {
     return values.get().lower;
   }
 
-  public int getUpper() {
-    return values.get().upper;
-  }
-
   public void setLower(int i) {
     while (true) {
       IntPair oldv = values.get();
@@ -30,6 +26,10 @@ public class CasNumberRange {
         return;
       }
     }
+  }
+
+  public int getUpper() {
+    return values.get().upper;
   }
 
   // similarly for setUpper

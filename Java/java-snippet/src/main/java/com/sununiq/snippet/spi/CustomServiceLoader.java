@@ -10,13 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @program: java-snippet
  *
- * @description: 自定义ServiceLoader
- *
- * @author: sununiq
- *
- * @create: 2018-06-23 14:26
  **/
 public class CustomServiceLoader {
   private static final String MAPPING_CONFIG_PREFIX = "META-INF/services";

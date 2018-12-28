@@ -23,10 +23,6 @@ public class TreeNode {
 
   @Override
   public String toString() {
-    return "TreeNode{" +
-        "value=" + value +
-        ", left=" + left +
-        ", right=" + right +
-        '}';
+    return "TreeNode{" + "value=" + value + ", left=" + left + ", right=" + right + '}';
   }
 }

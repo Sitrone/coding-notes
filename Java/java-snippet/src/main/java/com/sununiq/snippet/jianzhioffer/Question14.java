@@ -61,19 +61,6 @@ public class Question14 {
     }
   }
 
-  interface Strategy {
-    boolean isSupport(int x);
-  }
-
-  static class EvenOldStrategy implements Strategy {
-    static Strategy instance = new EvenOldStrategy();
-
-    @Override
-    public boolean isSupport(int x) {
-      return isOld(x);
-    }
-  }
-
   private static void swap(int[] arr, int i, int j) {
     int temp = arr[i];
     arr[i] = arr[j];
@@ -86,5 +73,18 @@ public class Question14 {
 
   private static boolean isEven(int x) {
     return (x & 0x1) == 0;
+  }
+
+  interface Strategy {
+    boolean isSupport(int x);
+  }
+
+  static class EvenOldStrategy implements Strategy {
+    static Strategy instance = new EvenOldStrategy();
+
+    @Override
+    public boolean isSupport(int x) {
+      return isOld(x);
+    }
   }
 }

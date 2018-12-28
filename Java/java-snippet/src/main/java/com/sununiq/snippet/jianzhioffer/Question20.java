@@ -1,26 +1,12 @@
 package com.sununiq.snippet.jianzhioffer;
 
 /**
- * @program: java-snippet
  *
- * @description: 顺时针打印矩阵, 一圈一圈的打印
- *
- * @author: sununiq
- *
- * @create: 2018-06-10 11:56
  **/
 public class Question20 {
   public static void main(String[] args) {
-    int[][] array = {
-        {1, 2, 3, 4, 7, 3},
-        {1, 2, 3, 4, 10, 23},
-        {1, 2, 3, 4, 23, 43},
-        {1, 2, 3, 4, 23, 43},
-        {1, 2, 3, 4, 23, 43},
-        {1, 2, 3, 4, 23, 43},
-        {1, 2, 3, 4, 23, 43},
-        {1, 2, 3, 4, 9, 56}
-    };
+    int[][] array = {{1, 2, 3, 4, 7, 3}, {1, 2, 3, 4, 10, 23}, {1, 2, 3, 4, 23, 43}, {1, 2, 3, 4, 23, 43},
+        {1, 2, 3, 4, 23, 43}, {1, 2, 3, 4, 23, 43}, {1, 2, 3, 4, 23, 43}, {1, 2, 3, 4, 9, 56}};
 
     printMatrixClockwise(array);
   }

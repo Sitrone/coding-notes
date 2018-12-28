@@ -50,16 +50,16 @@ public class Question5 {
       return head;
     }
 
-//        ListNode cur = head;
-//        ListNode next = cur.next;
-//        while (next != null) {
-//            ListNode temp = next.next;
-//            next.next = cur;
-//            cur = next;
-//            next = temp;
-//        }
-//        head.next = null;
-//        return cur;
+    //        ListNode cur = head;
+    //        ListNode next = cur.next;
+    //        while (next != null) {
+    //            ListNode temp = next.next;
+    //            next.next = cur;
+    //            cur = next;
+    //            next = temp;
+    //        }
+    //        head.next = null;
+    //        return cur;
 
     ListNode pre = head;
     ListNode cur = head.next;

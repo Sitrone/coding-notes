@@ -8,13 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @program: java-snippet jianzhi offer
  *
- * @description: 二叉树的镜像, 递归，bfs（queue），dfs（stack）
- *
- * @author: sununiq
- *
- * @create: 2018-06-10 11:35
  **/
 public class Question19 {
   public static void main(String[] args) {

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Question12 {
   public static void main(String[] args) {
-//        print1ToMaxOfDigits(3);
+    //        print1ToMaxOfDigits(3);
 
     print1ToMaxOfDigits_1(3);
 

@@ -10,21 +10,7 @@ import java.net.Socket;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @program: java-snippet
  *
- * @description: 极简rpc
- * ref: http://javatar.iteye.com/blog/1123915
- *
- * 1.服务端 接受客户端来的socket流， 接受约定为:
- *   1.1 方法名
- *   1.2 参数类型
- *   1.3 方法所需参数
- *
- * 2.客户端动态代理生成 代理service,调用该service的方法实则 交给invoke方法处理
- *
- *   逻辑，在该逻辑中实现远程连接，起多个线程。
- *
- * @create: 2018-07-23 21:28
  **/
 @Slf4j
 public class RpcFramework {

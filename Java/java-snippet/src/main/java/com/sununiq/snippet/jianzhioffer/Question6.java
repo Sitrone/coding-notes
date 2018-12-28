@@ -16,11 +16,12 @@ public class Question6 {
     printPreOrder(treeNode);
   }
 
-  public static TreeNode constructTree(int[] pre, int[] in) {
+  static TreeNode constructTree(int[] pre, int[] in) {
     return reConstructBinaryTree(pre, 0, pre.length - 1, in, 0, in.length - 1);
   }
 
-  private static TreeNode reConstructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
+  private static TreeNode reConstructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn,
+      int endIn) {
 
     if (startPre > endPre || startIn > endIn) {
       return null;
@@ -37,7 +38,7 @@ public class Question6 {
     return root;
   }
 
-  public static void printPreOrder(TreeNode node) {
+  private static void printPreOrder(TreeNode node) {
     if (node != null) {
       System.out.println(node.value);
       printPreOrder(node.left);

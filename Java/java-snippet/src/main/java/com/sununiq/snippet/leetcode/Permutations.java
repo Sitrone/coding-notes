@@ -14,6 +14,20 @@ import java.util.Queue;
  */
 public class Permutations {
 
+  List<List<Integer>> result1 = new ArrayList<>();
+
+  private static List<Integer> array2List(int[] nums) {
+    List<Integer> list = new ArrayList<>(nums.length);
+    for (int num : nums) {
+      list.add(num);
+    }
+    return list;
+  }
+
+  public static void main(String[] args) {
+    System.out.println(new Permutations().permute4(new int[]{1, 2, 3}));
+  }
+
   /**
    * dfs 搜索
    *
@@ -90,8 +104,6 @@ public class Permutations {
     return permutations;
   }
 
-  List<List<Integer>> result1 = new ArrayList<>();
-
   /**
    * 递归求解
    */
@@ -117,14 +129,6 @@ public class Permutations {
     int temp = nums[i];
     nums[i] = nums[j];
     nums[j] = temp;
-  }
-
-  private static List<Integer> array2List(int[] nums) {
-    List<Integer> list = new ArrayList<>(nums.length);
-    for (int num : nums) {
-      list.add(num);
-    }
-    return list;
   }
 
   /**
@@ -172,9 +176,5 @@ public class Permutations {
       directions[i] = false;
     }
     return directions;
-  }
-
-  public static void main(String[] args) {
-    System.out.println(new Permutations().permute4(new int[]{1, 2, 3}));
   }
 }

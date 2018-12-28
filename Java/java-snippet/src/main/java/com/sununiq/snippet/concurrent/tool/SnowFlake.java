@@ -5,13 +5,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
 
 /**
- * @program: java-snippet
- * 毫秒级，可以使用70年
- * @description: twitter 发号器 :0 - 41位时间戳 - 5位数据中心标识 - 5位机器标识 - 12位序列号
- * 协程的方案：https://mp.weixin.qq.com/s/F7WTNeC3OUr76sZARtqRjw
- * @author: sununiq
  *
- * @create: 2018-07-06 18:05
  **/
 public class SnowFlake {
 
@@ -57,6 +51,22 @@ public class SnowFlake {
     this.machineId = machineId << MACHINE_LEFT;
 
     this.datacenterId = datacenterId << DATACENTER_LEFT;
+  }
+
+  public static void main(String[] args) throws InterruptedException {
+    int size = 200;
+
+    SnowFlake snowFlake = new SnowFlake(1, 2);
+    CountDownLatch countDownLatch = new CountDownLatch(size);
+    ConcurrentLinkedQueue<Long> longs = new ConcurrentLinkedQueue<>();
+    IntStream.rangeClosed(1, size).parallel().forEach((i) -> {
+      long l = snowFlake.nextId();
+      longs.add(l);
+      countDownLatch.countDown();
+    });
+
+    countDownLatch.await();
+    longs.forEach(System.out::println);
   }
 
   /**
@@ -105,21 +115,5 @@ public class SnowFlake {
 
   private long getNewTimestamp() {
     return System.currentTimeMillis();
-  }
-
-  public static void main(String[] args) throws InterruptedException {
-    int size = 200;
-
-    SnowFlake snowFlake = new SnowFlake(1, 2);
-    CountDownLatch countDownLatch = new CountDownLatch(size);
-    ConcurrentLinkedQueue<Long> longs = new ConcurrentLinkedQueue<>();
-    IntStream.rangeClosed(1, size).parallel().forEach((i) -> {
-      long l = snowFlake.nextId();
-      longs.add(l);
-      countDownLatch.countDown();
-    });
-
-    countDownLatch.await();
-    longs.forEach(System.out::println);
   }
 }

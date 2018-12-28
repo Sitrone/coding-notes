@@ -40,7 +40,5 @@ public class MaskUtils {
   /**
    * 掩码策略
    */
-  public enum MaskStrategy {
-    ALL, FIRST, MIDDLE, LAST;
-  }
+  public enum MaskStrategy {ALL, FIRST, MIDDLE, LAST;}
 }

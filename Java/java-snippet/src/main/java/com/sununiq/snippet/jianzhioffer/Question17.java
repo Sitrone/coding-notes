@@ -13,7 +13,7 @@ public class Question17 {
     ListNode second = new ListNode(2);
     second.next(4).next(6).next(8);
 
-//        System.out.println(mergeList(first, second));
+    //        System.out.println(mergeList(first, second));
 
     System.out.println(mergeList_1(first, second));
   }
@@ -58,23 +58,23 @@ public class Question17 {
 
       p = p.next;
     }
-//        while (first != null && second != null) {
-//            if(first.value > second.value) {
-//                p.next = second;
-//                second = second.next;
-//            } else {
-//                p.next = first;
-//                first = first.next;
-//            }
-//
-//            p = p.next;
-//        }
-//
-//        if(first != null) {
-//            p.next = first;
-//        } else {
-//            p.next = second;
-//        }
+    //        while (first != null && second != null) {
+    //            if(first.value > second.value) {
+    //                p.next = second;
+    //                second = second.next;
+    //            } else {
+    //                p.next = first;
+    //                first = first.next;
+    //            }
+    //
+    //            p = p.next;
+    //        }
+    //
+    //        if(first != null) {
+    //            p.next = first;
+    //        } else {
+    //            p.next = second;
+    //        }
 
     return dummyListNode.next;
   }

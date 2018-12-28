@@ -3,13 +3,7 @@ package com.sununiq.snippet.jianzhioffer;
 import java.util.Arrays;
 
 /**
- * @program: java-snippet
  *
- * @description: 二叉树的后序遍历, 递归，最后一个节点为根节点，左小右大
- *
- * @author: sununiq
- *
- * @create: 2018-06-23 11:13
  **/
 public class Question24 {
   public static void main(String[] args) {
@@ -18,10 +12,10 @@ public class Question24 {
     int[] arr3 = {1, 1, 1, 1, 1, 6};
     int[] arr4 = {};
 
-//        System.out.println(isPostOrderBst(arr1));
-//        System.out.println(isPostOrderBst(arr2));
-//        System.out.println(isPostOrderBst(arr3));
-//        System.out.println(isPostOrderBst(arr4));
+    //        System.out.println(isPostOrderBst(arr1));
+    //        System.out.println(isPostOrderBst(arr2));
+    //        System.out.println(isPostOrderBst(arr3));
+    //        System.out.println(isPostOrderBst(arr4));
 
     System.out.println(isPostOrderBst(arr1, 0, arr1.length - 1));
     System.out.println(isPostOrderBst(arr2, 0, arr2.length - 1));

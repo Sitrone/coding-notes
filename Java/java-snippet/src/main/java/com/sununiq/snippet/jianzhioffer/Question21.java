@@ -4,13 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * @program: java-snippet
  *
- * @description: 包含min函数的栈, 利用辅助栈来保存最小的元素的列表
- *
- * @author: sununiq
- *
- * @create: 2018-06-23 10:17
  **/
 public class Question21 {
   public static void main(String[] args) {

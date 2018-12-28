@@ -4,6 +4,17 @@ package com.sununiq.snippet.gof.chain;
  * 第一种实现方式
  */
 public class Client {
+  public static void main(String[] args) {
+    Handler handlerA = new HandlerA();
+    Handler handlerB = new HandlerB();
+    Handler handlerC = new HandlerC();
+
+    handlerA.setSuccessor(handlerB);
+    handlerB.setSuccessor(handlerC);
+
+    handlerA.execute();
+  }
+
   private static class HandlerA extends Handler {
 
     @Override
@@ -26,16 +37,5 @@ public class Client {
     protected void handleProcess() {
       System.out.println("Handle by C");
     }
-  }
-
-  public static void main(String[] args) {
-    Handler handlerA = new HandlerA();
-    Handler handlerB = new HandlerB();
-    Handler handlerC = new HandlerC();
-
-    handlerA.setSuccessor(handlerB);
-    handlerB.setSuccessor(handlerC);
-
-    handlerA.execute();
   }
 }

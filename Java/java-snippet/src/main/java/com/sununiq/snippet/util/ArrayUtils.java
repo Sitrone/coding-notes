@@ -4,9 +4,7 @@ import java.lang.reflect.Array;
 
 public final class ArrayUtils {
   /**
-   * 1. 首先获取数组的类的对象
-   * 2. 确认是一个数组
-   * 3. 使用Class类（只能定义表示数组的类对象）的getComponentType方法确定数组对应的类型
+   * 1. 首先获取数组的类的对象 2. 确认是一个数组 3. 使用Class类（只能定义表示数组的类对象）的getComponentType方法确定数组对应的类型
    */
   public static Object copyOf(Object a, int newLen) {
     Class<?> cl = a.getClass();

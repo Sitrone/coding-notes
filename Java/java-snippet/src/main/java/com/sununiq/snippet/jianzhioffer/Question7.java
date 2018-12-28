@@ -8,7 +8,7 @@ import java.util.Stack;
  */
 public class Question7 {
   public static void main(String[] args) {
-//        testSQueue();
+    //        testSQueue();
 
     testQStack();
   }

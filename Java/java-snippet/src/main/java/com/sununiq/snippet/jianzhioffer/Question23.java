@@ -6,13 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @program: java-snippet
  *
- * @description: 从上到下打印二叉树, 广度优先，queue
- *
- * @author: sununiq
- *
- * @create: 2018-06-23 11:05
  **/
 public class Question23 {
   public static void main(String[] args) {

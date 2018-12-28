@@ -16,32 +16,21 @@ import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @program: java-snippet
  *
- * @description: guava cache usage
- *
- * 两种回收方式：
- * 1. expireAfterAccess(long, TimeUnit)：
- *    缓存项在给定时间内没有被读/写访问，则回收。请注意这种缓存的回收顺序和基于大小回收一样。
- * 2. expireAfterWrite(long, TimeUnit)：
- *    缓存项在给定时间内没有被写访问（创建或覆盖），则回收。如果认为缓存数据总是在固定时候后变得陈旧不可用，这种回收方式是可取的。
- * @author: sununiq
- *
- * @create: 2018-07-16 20:41
  **/
 @Slf4j
 public class GuavaCache {
-  public static void main(String[] args) {
-    cache1();
-    cache5();
-  }
-
   private static final CacheLoader<String, String> loader = new CacheLoader<String, String>() {
     @Override
     public String load(String key) {
       return "can not:" + key;
     }
   };
+
+  public static void main(String[] args) {
+    cache1();
+    cache5();
+  }
 
   /**
    * 基于容量回收
@@ -101,8 +90,7 @@ public class GuavaCache {
 
     // 当缓存的key很多时，高并发条件下大量线程同时获取不同key对应的缓存，此时依然会造成大量线程阻塞
     // 此种方式使用后台线程池去异步刷新过期缓存
-    LoadingCache<String, String> cache = CacheBuilder.newBuilder()
-                                                     .maximumSize(4)
+    LoadingCache<String, String> cache = CacheBuilder.newBuilder().maximumSize(4)
                                                      .refreshAfterWrite(10, TimeUnit.SECONDS)
                                                      .build(new CacheLoader<String, String>() {
                                                        @Override
@@ -127,10 +115,7 @@ public class GuavaCache {
     };
 
     LoadingCache<String, String> cache;
-    cache = CacheBuilder.newBuilder()
-                        .maximumSize(3)
-                        .removalListener(listener)
-                        .build(loader);
+    cache = CacheBuilder.newBuilder().maximumSize(3).removalListener(listener).build(loader);
 
     cache.getUnchecked("1");
     cache.getUnchecked("2");

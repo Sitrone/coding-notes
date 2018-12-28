@@ -17,14 +17,15 @@ import java.util.Arrays;
  * @author Steve Ebersole
  */
 public final class Helper {
-  private Helper() {
-  }
+  private static final byte[] ADDRESS_BYTES;
 
   // IP ADDRESS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  private static final byte[] ADDRESS_BYTES;
   private static final int ADDRESS_INT;
   private static final String ADDRESS_HEX_STRING;
+  private static final byte[] JVM_IDENTIFIER_BYTES;
+  private static final int JVM_IDENTIFIER_INT;
+  private static final String JVM_IDENTIFIER_HEX_STRING;
+  private static short counter = (short) 0;
 
   static {
     byte[] address;
@@ -36,6 +37,17 @@ public final class Helper {
     ADDRESS_BYTES = address;
     ADDRESS_INT = BytesHelper.toInt(ADDRESS_BYTES);
     ADDRESS_HEX_STRING = format(ADDRESS_INT);
+  }
+
+  // JVM identifier ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  static {
+    JVM_IDENTIFIER_INT = (int) (System.currentTimeMillis() >>> 8);
+    JVM_IDENTIFIER_BYTES = BytesHelper.fromInt(JVM_IDENTIFIER_INT);
+    JVM_IDENTIFIER_HEX_STRING = format(JVM_IDENTIFIER_INT);
+  }
+
+  private Helper() {
   }
 
   public static byte[] getAddressBytes() {
@@ -50,18 +62,6 @@ public final class Helper {
     return ADDRESS_HEX_STRING;
   }
 
-  // JVM identifier ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  private static final byte[] JVM_IDENTIFIER_BYTES;
-  private static final int JVM_IDENTIFIER_INT;
-  private static final String JVM_IDENTIFIER_HEX_STRING;
-
-  static {
-    JVM_IDENTIFIER_INT = (int) (System.currentTimeMillis() >>> 8);
-    JVM_IDENTIFIER_BYTES = BytesHelper.fromInt(JVM_IDENTIFIER_INT);
-    JVM_IDENTIFIER_HEX_STRING = format(JVM_IDENTIFIER_INT);
-  }
-
   public static byte[] getJvmIdentifierBytes() {
     return JVM_IDENTIFIER_BYTES;
   }
@@ -70,13 +70,11 @@ public final class Helper {
     return JVM_IDENTIFIER_INT;
   }
 
+  // counter ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   public static String getJvmIdentifierHexString() {
     return JVM_IDENTIFIER_HEX_STRING;
   }
-
-  // counter ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  private static short counter = (short) 0;
 
   /**
    * Unique in a millisecond for this JVM instance (unless there are > Short.MAX_VALUE instances created in a

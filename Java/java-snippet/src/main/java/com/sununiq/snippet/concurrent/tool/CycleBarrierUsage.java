@@ -15,9 +15,8 @@ public class CycleBarrierUsage {
 
   public static void main(String[] args) {
     int N = 4;
-    CyclicBarrier barrier = new CyclicBarrier(N, () ->
-        log.info("current thread:{}", Thread.currentThread().getName())
-    );
+    CyclicBarrier barrier = new CyclicBarrier(N,
+        () -> log.info("current thread:{}", Thread.currentThread().getName()));
 
     for (int i = 0; i < N; i++) {
       new Writer(barrier).start();

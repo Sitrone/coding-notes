@@ -4,6 +4,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ChainClient {
+  /**
+   * spring 多个AOP叠加调用的实现参考：ReflectiveMethodInvocation.class 基于链式调用
+   *
+   * @param args
+   */
+  public static void main(String[] args) {
+    List<ChainHandler> chainHandlerList = Arrays
+        .asList(new ChainHandlerA(), new ChainHandlerB(), new ChainHandlerC());
+    Chain chain = new Chain(chainHandlerList);
+    chain.process();
+  }
+
   private static class ChainHandlerA extends ChainHandler {
 
     @Override
@@ -26,20 +38,5 @@ public class ChainClient {
     protected void handleProcess() {
       System.out.println("Handled by C");
     }
-  }
-
-  /**
-   * spring 多个AOP叠加调用的实现参考：ReflectiveMethodInvocation.class 基于链式调用
-   *
-   * @param args
-   */
-  public static void main(String[] args) {
-    List<ChainHandler> chainHandlerList = Arrays.asList(
-        new ChainHandlerA(),
-        new ChainHandlerB(),
-        new ChainHandlerC()
-    );
-    Chain chain = new Chain(chainHandlerList);
-    chain.process();
   }
 }

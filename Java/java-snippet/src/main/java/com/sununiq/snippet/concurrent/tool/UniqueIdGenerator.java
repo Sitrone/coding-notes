@@ -6,22 +6,9 @@ import com.sununiq.snippet.util.Helper;
 import java.util.UUID;
 
 /**
- * @program: java-snippet
  *
- * @description: 唯一性ID生成, hibernate方法
- *
- * 时间戳(6bytes, 48bit) + 顺序号(2bytes, 16bit, 最大值65535) + 机器标识(4bytes 32bit) + 进程标识(4bytes 32bit)
- *
- * @author: sununiq
- *
- * @create: 2018-06-23 15:47
- * ref:http://calvin1978.blogcn.com/articles/uuid.html
  **/
 public class UniqueIdGenerator {
-  public int getGeneratedVersion() {
-    return 1;
-  }
-
   private final long mostSignificantBits;
 
   public UniqueIdGenerator() {
@@ -36,15 +23,6 @@ public class UniqueIdGenerator {
     hiBits[6] |= 0x10;
 
     mostSignificantBits = BytesHelper.asLong(hiBits);
-  }
-
-  public UUID generateUUID() {
-    long leastSignificantBits = generateLeastSignificantBits(System.currentTimeMillis());
-    return new UUID(mostSignificantBits, leastSignificantBits);
-  }
-
-  public long getMostSignificantBits() {
-    return mostSignificantBits;
   }
 
   public static long generateLeastSignificantBits(long seed) {
@@ -98,5 +76,18 @@ public class UniqueIdGenerator {
       }
       System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
+  }
+
+  public int getGeneratedVersion() {
+    return 1;
+  }
+
+  public UUID generateUUID() {
+    long leastSignificantBits = generateLeastSignificantBits(System.currentTimeMillis());
+    return new UUID(mostSignificantBits, leastSignificantBits);
+  }
+
+  public long getMostSignificantBits() {
+    return mostSignificantBits;
   }
 }

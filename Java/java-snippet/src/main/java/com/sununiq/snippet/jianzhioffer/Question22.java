@@ -4,13 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * @program: java-snippet
  *
- * @description: 栈的压入，弹出序列
- *
- * @author: sununiq FIXME
- *
- * @create: 2018-06-23 10:38
  **/
 public class Question22 {
   public static void main(String[] args) {

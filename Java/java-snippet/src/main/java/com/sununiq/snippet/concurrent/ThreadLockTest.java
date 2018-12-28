@@ -15,17 +15,11 @@ public class ThreadLockTest implements Runnable {
   public static int num = 1;
 
   public static int thread = 1;
-
-  private int threadNum = thread++;
-
   private static ReentrantLock lock = new ReentrantLock();
-
   public static Condition condition1 = lock.newCondition();
-
   public static Condition condition2 = lock.newCondition();
-
   public static Condition condition3 = lock.newCondition();
-
+  private int threadNum = thread++;
   private Condition currentCondition;
 
   private Condition nextCondition;
@@ -33,6 +27,18 @@ public class ThreadLockTest implements Runnable {
   public ThreadLockTest(Condition myCondition, Condition nextCondition) {
     this.currentCondition = myCondition;
     this.nextCondition = nextCondition;
+  }
+
+  public static void main(String[] argv) {
+    ThreadLockTest task1 = new ThreadLockTest(condition1, condition2);
+    ThreadLockTest task2 = new ThreadLockTest(condition2, condition3);
+    ThreadLockTest task3 = new ThreadLockTest(condition3, condition1);
+
+    ExecutorService service = Executors.newFixedThreadPool(3);
+    service.submit(task1);
+    service.submit(task2);
+    service.submit(task3);
+    service.shutdown();
   }
 
   @Override
@@ -53,17 +59,5 @@ public class ThreadLockTest implements Runnable {
     } finally {
       lock.unlock();
     }
-  }
-
-  public static void main(String[] argv) {
-    ThreadLockTest task1 = new ThreadLockTest(condition1, condition2);
-    ThreadLockTest task2 = new ThreadLockTest(condition2, condition3);
-    ThreadLockTest task3 = new ThreadLockTest(condition3, condition1);
-
-    ExecutorService service = Executors.newFixedThreadPool(3);
-    service.submit(task1);
-    service.submit(task2);
-    service.submit(task3);
-    service.shutdown();
   }
 }

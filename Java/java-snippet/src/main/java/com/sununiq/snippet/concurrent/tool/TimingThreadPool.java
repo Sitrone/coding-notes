@@ -21,6 +21,10 @@ public class TimingThreadPool extends ThreadPoolExecutor {
     super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
   }
 
+  public static void main(String[] args) {
+    log.info("Hello world");
+  }
+
   protected void beforeExecute(Thread t, Runnable r) {
     super.beforeExecute(t, r);
     log.info(String.format("Thread %s: start %s", t, r.getClass().getName()));
@@ -45,10 +49,6 @@ public class TimingThreadPool extends ThreadPoolExecutor {
     } finally {
       super.terminated();
     }
-  }
-
-  public static void main(String[] args) {
-    log.info("Hello world");
   }
 }
 
