@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  *  数字在排序数组中出现的次数
  *  1. hashMap
- *  2. 对于排序好的，可以使用二分查找
+ *  2. 对于排序好的，可以使用二分查找 TODO
  **/
 public class Question38 {
 
@@ -22,7 +22,7 @@ public class Question38 {
 
 
     Map<Integer, Integer> map = new HashMap<>(nums.length);
-    for (final int num : nums) {
+    for (int num : nums) {
       if (map.containsKey(num)) {
         map.put(num, map.get(num) + 1);
       } else {

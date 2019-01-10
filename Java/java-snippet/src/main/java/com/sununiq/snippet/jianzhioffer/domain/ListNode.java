@@ -1,11 +1,11 @@
 package com.sununiq.snippet.jianzhioffer.domain;
 
 public class ListNode {
-  public int value;
+  public int val;
   public ListNode next;
 
-  public ListNode(int value) {
-    this.value = value;
+  public ListNode(int val) {
+    this.val = val;
   }
 
   public ListNode next(int value) {
@@ -16,6 +16,6 @@ public class ListNode {
 
   @Override
   public String toString() {
-    return "ListNode{" + "value=" + value + ", next=" + next + '}';
+    return "ListNode{" + "val=" + val + ", next=" + next + '}';
   }
 }

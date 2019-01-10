@@ -18,7 +18,7 @@ public class Question13 {
     t.next = f;
     f.next = fi;
 
-    deleteNode(first, fi);
+    deleteNode(first, f);
 
     System.out.println(first);
   }
@@ -31,10 +31,11 @@ public class Question13 {
     ListNode next = toBeDeleted.next;
 
     // 链表有多个节点，要删除的不是尾节点:O(1)时间
+    // 使用下一个节点来覆盖待删除的节点
     if (next != null) {
-      toBeDeleted.value = next.value;
+      toBeDeleted.val = next.val;
       toBeDeleted.next = next.next;
-      toBeDeleted = null;
+      next = null;
 
       // 链表只有一个结点，删除头结点（也是尾结点）:O(1)时间
     } else if (head == toBeDeleted) {
@@ -43,12 +44,12 @@ public class Question13 {
 
       // 链表有多个节点，要删除的是尾节点:O(n)时间
     } else {
-      ListNode temp = head;
-      while (temp.next != toBeDeleted) {
-        temp = temp.next;
+      ListNode cur = head;
+      while (cur.next != toBeDeleted) {
+        cur = cur.next;
       }
 
-      temp.next = null;
+      cur.next = null;
       toBeDeleted = null;
     }
   }

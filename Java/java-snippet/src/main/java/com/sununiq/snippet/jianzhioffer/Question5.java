@@ -19,13 +19,13 @@ public class Question5 {
 
     ListNode last = revert(first);
 
-    System.out.println(last.value);
+    System.out.println(last.val);
   }
 
   public static void printFromTailWithStack(ListNode head) {
     Deque<Integer> stack = new ArrayDeque<>();
     while (head != null) {
-      stack.push(head.value);
+      stack.push(head.val);
       head = head.next;
     }
 
@@ -38,7 +38,7 @@ public class Question5 {
   public static void printFromTail(ListNode head) {
     if (head != null) {
       printFromTail(head.next);
-      System.out.println(head.value);
+      System.out.println(head.val);
     }
   }
 

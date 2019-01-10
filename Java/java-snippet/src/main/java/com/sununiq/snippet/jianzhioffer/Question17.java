@@ -41,7 +41,7 @@ public class Question17 {
     ListNode p = dummyListNode;
     while (first != null || second != null) {
       if (first != null && second != null) {
-        if (first.value > second.value) {
+        if (first.val > second.val) {
           p.next = second;
           second = second.next;
         } else {
@@ -59,7 +59,7 @@ public class Question17 {
       p = p.next;
     }
     //        while (first != null && second != null) {
-    //            if(first.value > second.value) {
+    //            if(first.val > second.val) {
     //                p.next = second;
     //                second = second.next;
     //            } else {
@@ -95,7 +95,7 @@ public class Question17 {
     }
 
     ListNode head = null;
-    if (first.value < second.value) {
+    if (first.val < second.val) {
       head = first;
       head.next = mergeList_1(first.next, second);
     } else {

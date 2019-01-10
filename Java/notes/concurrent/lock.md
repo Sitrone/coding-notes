@@ -43,6 +43,22 @@ jdk1.5引入，Doug Lea大神的作品。 `lock`接口如下:
 `AQS`的本质上是一个同步器/阻塞锁的基础框架，其作用主要是提供加锁、释放锁，并在内部维护一个`FIFO`等待队列，用于存储由于锁竞争而阻塞的线程。  
 
 
+
+### jvm里面的其他锁 
+
+* 自旋锁 
+
+  
+
+* 轻量级锁
+
+  
+
+* 重量级锁
+
+
+
+
 ### Ref 
 1. [Java锁机制了解一下](https://juejin.im/post/5adf14dcf265da0b7b358d58)  
 2. [ReentrantLock源码之一lock方法解析(锁的获取)](http://www.blogjava.net/zhanglongsr/articles/356782.html)  

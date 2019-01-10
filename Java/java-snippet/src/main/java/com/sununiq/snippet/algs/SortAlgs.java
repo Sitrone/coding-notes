@@ -9,9 +9,59 @@ public class SortAlgs {
 
   public static void main(String[] args) {
     Integer[] arr = new Integer[]{7, 5, 6, 4};
-    new SortAlgs().mergeSort(arr);
+//    new SortAlgs().mergeSort(arr);
+    new SortAlgs().quickSort(arr);
+
+//    new SortAlgs().insertSort(arr);
 
     System.out.println(Arrays.toString(arr));
+  }
+
+  public void insertSort(Comparable[] nums) {
+    if (nums == null || nums.length <= 1) {
+      return;
+    }
+
+    for (int i = 1; i < nums.length; i++)
+      for (int j = i; j > 0; j--) {
+        if (less(nums[j], nums[j - 1])) {
+          swap(nums, j, j - 1);
+        }
+      }
+  }
+
+  public void quickSort(Comparable[] nums) {
+    doQuickSort(nums, 0, nums.length - 1);
+  }
+
+  private void doQuickSort(Comparable[] nums, int lo, int hi) {
+    if (hi <= lo) {
+      return;
+    }
+
+    int p = partition(nums, lo, hi);
+    doQuickSort(nums, lo, p - 1);
+    doQuickSort(nums, p + 1, hi);
+  }
+
+  private int partition(final Comparable[] nums, final int lo, final int hi) {
+    Comparable posix = nums[lo];
+    int i = lo, j = hi + 1;
+
+    while (true) {
+      while (less(nums[++i], posix) ) {
+        if (i == hi) break;
+      }
+      while (less(posix, nums[--j])) { }
+      if (i >= j) {
+        break;
+      }
+
+      swap(nums, i, j);
+    }
+
+    swap(nums, lo, j);
+    return j;
   }
 
   public void mergeSort(Comparable[] nums) {
@@ -42,11 +92,21 @@ public class SortAlgs {
         nums[k] = oriArray[j++];
       } else if (j > end) {
         nums[k] = oriArray[i++];
-      } else if (oriArray[i].compareTo(oriArray[j]) > 0) {
+      } else if (less(oriArray[j], oriArray[i])) {
         nums[k] = oriArray[j++];
       } else {
         nums[k] = oriArray[i++];
       }
     }
+  }
+
+  private boolean less(Comparable a, Comparable b) {
+    return a.compareTo(b) < 0;
+  }
+
+  private void swap(Comparable[] a, int i, int j) {
+    Comparable temp = a[i];
+    a[i] = a[j];
+    a[j] = temp;
   }
 }

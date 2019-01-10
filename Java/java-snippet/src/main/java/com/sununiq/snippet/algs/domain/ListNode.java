@@ -16,6 +16,6 @@ public class ListNode {
 
   @Override
   public String toString() {
-    return "ListNode{" + "value=" + value + ", next=" + next + '}';
+    return "ListNode{" + "val=" + value + ", next=" + next + '}';
   }
 }

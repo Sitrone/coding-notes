@@ -16,7 +16,7 @@ public final class BytesHelper {
   /**
    * Custom algorithm used to generate an int from a series of bytes.
    * <p/>
-   * NOTE : this is different than interpreting the incoming bytes as an int value!
+   * NOTE : this is different than interpreting the incoming bytes as an int val!
    *
    * @param bytes The bytes to use in generating the int.
    * @return The generated int.
