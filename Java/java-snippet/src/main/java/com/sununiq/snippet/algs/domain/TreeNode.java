@@ -9,6 +9,12 @@ public class TreeNode {
     this.value = value;
   }
 
+  public TreeNode(final int value, final TreeNode left, final TreeNode right) {
+    this.value = value;
+    this.left = left;
+    this.right = right;
+  }
+
   public TreeNode left(int value) {
     TreeNode treeNode = new TreeNode(value);
     this.left = treeNode;
