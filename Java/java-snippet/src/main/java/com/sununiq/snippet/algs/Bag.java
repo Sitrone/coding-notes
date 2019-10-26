@@ -4,14 +4,14 @@ import java.util.Stack;
 
 /**
  * 总体积为T，n件物品体积分别是w1,w2,...,w2n，找出若干件恰好装满背包
- *
- * 解法：采用0-1背包的思想，使用递归方法：
- *
+ * <p>
+ * 解法：采用0-1背包的思想，使用回溯方法：
+ * <p>
  * 　　当选择n时，就用剩下的n-1填满 m-n;
- *
+ * <p>
  * 　　当不选择n是，就用剩下的n-1填满m；
- *
- * Ref: https://blog.csdn.net/guo8113/article/details/39434985
+ * <p>
+ * 回溯算法，参考极客时间 Ref: https://blog.csdn.net/guo8113/article/details/39434985
  **/
 public class Bag {
   public static void main(String[] args) {
